@@ -1,0 +1,61 @@
+<%= form_for(@announce) do |f| %>
+  <% if @announce.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@announce.errors.count, "error") %> prohibited this announce from being saved:</h2>
+
+      <ul>
+      <% @announce.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<%
+		if @announce.state_id.present?
+			status = @announce.state_id
+		else
+			status = 0
+		end
+	%>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :tel %><br />
+    <%= f.text_field :tel %>
+  </div>
+  <div class="field">
+    <%= f.label :mail %>
+		(You can use commas to separate multiple addresses.)<br />
+		(This address is used for CC address. TO address is cloc-ia -at- nttcloud.net, so you don't need for write it.)<br />
+    </br>
+		<%= f.text_field :mail %>
+  </div>
+  <div class="field">
+    StartTime<br />
+    <%= f.datetime_select :stime %>
+  </div>
+  <div class="field">
+    EndTime<br />
+    <%= f.datetime_select :etime %>
+  </div>
+  <div class="field">
+    <%= f.label :device %><br />
+    <%= f.text_area :device, :size => "40x5", :class => "span5" %>
+  </div>
+	<%= f.hidden_field :state_id, :value => status %>
+  <div class="field">
+    <%= f.label :message %><br />
+    <%= f.text_area :message, :class => "span5" %>
+  </div>
+	
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

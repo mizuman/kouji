@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  tel: MyString
+  mail: MyString
+  stime: 2012-09-25 17:18:01
+  etime: 2012-09-25 17:18:01
+  device: MyString
+  message: MyText
+
+two:
+  name: MyString
+  tel: MyString
+  mail: MyString
+  stime: 2012-09-25 17:18:01
+  etime: 2012-09-25 17:18:01
+  device: MyString
+  message: MyText

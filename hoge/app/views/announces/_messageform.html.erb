@@ -1,0 +1,12 @@
+<%= form_tag('result') do %>
+  <div class="field">
+    <%= text_area_tag :message, '', :size => "40x10", :class => 'span5' %>
+  </div>
+	
+	<%= hidden_field_tag :aname, action_name %>
+
+	<div class="actions">
+    <%= submit_tag("Send Message") %>
+  </div>
+	
+<% end %>

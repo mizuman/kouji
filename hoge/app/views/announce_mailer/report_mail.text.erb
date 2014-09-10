@@ -1,0 +1,24 @@
+CLOC各位
+Dear CLOC members,
+
+お疲れ様です。
+掲題の作業について、以下の状況となっておりますためご連絡いたします。
+追って続報をお送りいたします。
+This email is to inform you that the following situations occured during construction.
+We will send a follow-up later on.
+
+<%= @message %>
+
+=========================================
+devices          : <%= @announce.device %>
+operator         : <%= @announce.name %> 
+operation time   : <%= @announce.stime.to_s(:simple) %> - <%= @announce.etime.to_s(:simple) %>
+emergency contact: <%= @announce.tel %>
+start messages   :
+<%= @announce.message %>
+=========================================
+
+以上、よろしくお願いいたします。
+Regards,
+
+-- Sent from construction announce system --

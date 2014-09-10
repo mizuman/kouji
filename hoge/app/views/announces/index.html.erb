@@ -1,0 +1,80 @@
+<h2>Latest Announces</h2>
+
+<table class="table table-striped">
+  <tr>
+    <th>Status</th>
+    <th>Title</th>
+    <th>Name</th>
+    <th>Tel</th>
+    <th>Mail</th>
+    <th>StartTime</th>
+    <th>EndTime</th>
+    <th>Device</th>
+    <th>Message</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+	<% @announces.each do |announce| %>
+	<tr>
+    <td><%= announce.state.state %></td>
+    <td><%= announce.title %></td>
+    <td><%= announce.name %></td>
+    <td><%= announce.tel %></td>
+    <td><%= announce.mail %></td>
+    <td><%= announce.stime.to_s(:simple) %></td>
+    <td><%= announce.etime.to_s(:simple) %></td>
+    <td><%= announce.device %></td>
+    <td><%= announce.message %></td>
+    <% if announce.state_id == 0 then %>
+    <td colspan = 2><%= link_to 'Start', start_announce_path(announce), :class => "btn btn-mini" %></td>
+    <% elsif announce.state_id == 1 || announce.state_id == 2 then %>
+    <td><%= link_to 'Report', report_announce_path(announce), :class => "btn btn-mini" %></td>
+    <td><%= link_to 'Finish', finish_announce_path(announce), :class => "btn btn-mini" %></td>
+    <% else %>
+    <td colspan=2></td>
+    <% end %>
+    <% if announce.state_id == 0 then %>
+    <td><%= link_to 'Edit', edit_announce_path(announce), :class => "btn btn-mini" %></td>
+    <td><%= link_to 'Destroy', announce, method: :delete, confirm: 'Are you sure?', :class => "btn btn-mini" %></td>
+    <% else %>
+    <td colspan = 2></td>
+    <% end %>
+  </tr>
+	<% end %>
+</table>
+
+
+<h2>Past Announces(Last 24 Hours)</h2>
+
+<table class="table table-striped">
+  <tr>
+    <th>Status</th>
+    <th>Title</th>
+    <th>Name</th>
+    <th>Tel</th>
+    <th>Mail</th>
+    <th>StartTime</th>
+    <th>EndTime</th>
+    <th>Device</th>
+    <th>Message</th>
+  </tr>
+
+<% @pannounces.each do |announce| %>
+  <tr>
+    <td><%= announce.state.state %></td>
+    <td><%= announce.title %></td>
+    <td><%= announce.name %></td>
+    <td><%= announce.tel %></td>
+    <td><%= announce.mail %></td>
+    <td><%= announce.stime.to_s(:simple) %></td>
+    <td><%= announce.etime.to_s(:simple) %></td>
+    <td><%= announce.device %></td>
+    <td><%= announce.message %></td>
+  </tr>
+<% end %>
+</table>
+

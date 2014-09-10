@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CLOC Construction Information System</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "bootstrap.min" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrap.min" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+  <div style="background:#DCDCDC; ">
+    <img src="/announces/assets/Construction Info.png" style="width:380px; height:38px; margin-left:40px; margin-top:0px;">
+    </br>
+    <p class="lead" style="font-size: 100%; text-indent: 40px;">CLOC construction infomation about NW nodes, links, configrations, and more.</p>
+  </div>
+</header>
+
+  <div class="row-fluid">
+
+    <div class="span1">
+      </br>
+        <ul class="nav nav-list bs-docs-sidenav">
+        <li><button class="btn btn-small btn-danger" type="button" onClick="location.href='<%=new_announce_path%>'">new info.</button></li>
+        <li><%= link_to 'Top', announces_path %></li>
+        <li><%= link_to 'Log', log_announce_path %></li>
+				</ul>
+				</br>
+				<ul class="nav nav-list bs-docs-sidenav">
+        	<li><%= link_to 'FW Config Announce', :action => :new, :type => 'fw' %></li>
+					<li><%= link_to 'MAC Filter Announce', :action => :new, :type => 'mac' %></li>
+					<li><%= link_to 'VLAN Change Announce', :action => :new, :type => 'room' %></li>
+				</ul>
+    </div>
+
+    <div class="span11">
+     <%= yield %>
+    </div>
+
+   </div>
+
+</body>
+</html>

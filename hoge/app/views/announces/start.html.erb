@@ -1,0 +1,39 @@
+<h1>Transmission Complete.</h1>
+
+Announce mail has sent and construction status has changed from "StandBy" to " 
+<%= @announce.state.state %>".
+<br />
+
+Your announce is as follows,
+
+<hr>
+<pre>
+Title: <%= MAIL_SUBJ_START+@announce.title %>
+
+CLOC各位
+Dear CLOC members,
+
+お疲れ様です。
+只今より掲題の件で作業を行います。
+詳細は以下の通りです。
+This email is to inform you that we intend to work on CLOUD NW/server devices.
+The details are as follows:
+
+<%= @announce.message %>
+
+=========================================
+devices          : <%= @announce.device %>
+operator         : <%= @announce.name %>
+operation time   : <%= @announce.stime.to_s(:simple) %> - <%= @announce.etime.to_s(:simple) %>
+emergency contact: <%= @announce.tel %>
+=========================================
+
+以上、よろしくお願いいたします。
+Regards,
+
+-- Sent from construction announce system --
+</pre>
+<hr>
+
+<%= link_to 'Show', @announce %> |
+<%= link_to 'Back', announces_path %>

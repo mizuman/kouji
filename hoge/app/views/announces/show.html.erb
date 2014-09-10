@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @announce.name %>
+</p>
+
+<p>
+  <b>Tel:</b>
+  <%= @announce.tel %>
+</p>
+
+<p>
+  <b>Mail:</b>
+  <%= @announce.mail %>
+</p>
+
+<p>
+  <b>StartTime:</b>
+  <%= @announce.stime.to_s(:simple) %>
+</p>
+
+<p>
+  <b>EndTime:</b>
+  <%= @announce.etime.to_s(:simple) %>
+</p>
+
+<p>
+  <b>Device:</b>
+  <%= @announce.device %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @announce.message %>
+</p>
+
+
+<%= link_to 'Edit', edit_announce_path(@announce) %> |
+<%= link_to 'Back', announces_path %>

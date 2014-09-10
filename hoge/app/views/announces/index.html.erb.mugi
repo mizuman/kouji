@@ -1,0 +1,37 @@
+<h1>Listing announces</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Status</th>
+    <th>Title</th>
+    <th>Name</th>
+    <th>Tel</th>
+    <th>Mail</th>
+    <th>StartTime</th>
+    <th>EndTime</th>
+    <th>Device</th>
+    <th>Message</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @announces.each do |announce| %>
+  <tr>
+    <td><%= announce.state.state %></td>
+    <td><%= announce.title %></td>
+    <td><%= announce.name %></td>
+    <td><%= announce.tel %></td>
+    <td><%= announce.mail %></td>
+    <td><%= announce.stime %></td>
+    <td><%= announce.etime %></td>
+    <td><%= announce.device %></td>
+    <td><%= announce.message %></td>
+    <td><%= link_to 'Start', start_announce_path(announce) %></td>
+    <td><%= link_to 'Show', announce %></td>
+    <td><%= link_to 'Edit', edit_announce_path(announce) %></td>
+    <td><%= link_to 'Destroy', announce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
